@@ -1,6 +1,6 @@
 <template>
-    <bg-text-run/>
-    <header-app/>
+    <running-line/>
+    <app-header/>
     <router-view v-slot="{ Component }">
         <transition :name="animationName" mode="out-in">
             <component :is="Component"/>
@@ -9,11 +9,13 @@
 </template>
 
 <script>
-  import HeaderApp from '@/components/HeaderApp.vue'
+  import AppHeader from '@/components/AppHeader.vue'
+  import RunningLine from './components/UI/RunningLine'
 
   export default {
     components: {
-      HeaderApp
+      RunningLine,
+      AppHeader
     },
     data () {
       return {
@@ -31,7 +33,7 @@
 <style lang="scss">
     @font-face {
         font-family: 'Rubik';
-        src: url('./fonts/Rubik-Bold.ttf');
+        src: url('./assets/fonts/Rubik-Bold.ttf');
     }
 
     * {

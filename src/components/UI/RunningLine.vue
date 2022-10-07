@@ -67,7 +67,7 @@
 
 <script>
    export default {
-      name: "bg-text-run",
+      name: "running-line",
    };
 </script>
 
@@ -88,7 +88,7 @@
          flex-direction: column;
          gap: 10px;
          transform: rotate(-30deg);
-         z-index: 3;
+         z-index: 0;
          @media screen and (max-width: 1024px) {
             transform: rotate(140deg);
          }
@@ -96,7 +96,7 @@
             transform: rotate(120deg);
          }
          @media screen and (max-width: 700px) {
-            transform: rotate(60deg);
+            transform: rotate(123deg);
          }
       }
       .text1 {

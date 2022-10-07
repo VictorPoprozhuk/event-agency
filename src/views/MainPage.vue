@@ -1,15 +1,15 @@
 <template>
    <div class="main">
-      <main-app />
+      <company-heading />
    </div>
 </template>
 
 <script>
-   import MainApp from "@/components/MainApp.vue";
+   import CompanyHeading from "@/components/CompanyHeading.vue";
    export default {
       name: "main-page",
       components: {
-         MainApp,
+         CompanyHeading,
       },
    };
 </script>
