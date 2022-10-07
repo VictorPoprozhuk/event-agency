@@ -1,9 +1,11 @@
 <template>
-   <div class="main-text">
-      <h1 :style="moveText">FULL-CYCLE <br />EVENT AGENCY</h1>
-      <div class="circle-container">
-         <div class="circle"></div>
-         <circle-text />
+   <div>
+      <div class="main-text">
+         <h1 :style="moveText">FULL-CYCLE <br />EVENT AGENCY</h1>
+         <div class="circle-container">
+            <div class="circle"></div>
+            <circle-text />
+         </div>
       </div>
    </div>
 </template>

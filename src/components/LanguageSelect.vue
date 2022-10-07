@@ -1,18 +1,19 @@
 <template>
    <div class="lang-select">
-      <div class="selec-container">
+      <div class="selec-container" @mouseleave="isVisible = false">
          <div
-            class="icon"
-            @mousemove="visibleSelects = true">
+              @mouseenter="isVisible = true"
+              class="icon"
+            >
             <span> 👅 </span>
          </div>
-         <div class="secects">
+         <div class="secects" :style="{ pointerEvents: isVisible ? 'auto' : 'none' }">
             <span
-               @click="visibleSelects = false"
+               @click="isVisible = false"
                v-for="(lang, index) in langs"
                :style="{
                   transitionDelay: `${index}` * 0.2 + 's',
-                  opacity: visibleSelects ? 1 : 0,
+                  opacity: isVisible ? 1 : 0,
                }"
                :key="lang"
                >{{ lang }}</span
@@ -27,7 +28,7 @@
       name: "lang-select",
       data() {
          return {
-            visibleSelects: false,
+            isVisible: false,
             langs: ["UA", "EN", "PL"],
          };
       },
