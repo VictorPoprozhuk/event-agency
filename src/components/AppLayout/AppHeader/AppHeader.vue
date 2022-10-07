@@ -1,6 +1,6 @@
 <template>
    <header>
-      <links-main />
+      <app-navigation />
       <div class="header__container">
          <lang-select />
          <logo />
@@ -9,13 +9,15 @@
 </template>
 
 <script>
-   import LangSelect from "@/components/LanguageSelect.vue";
-   import LinksMain from "@/components/LinksMain.vue";
+   import LangSelect from "./LanguageSelect.vue";
+   import AppNavigation from "@/components/AppLayout/AppNavigation.vue";
+   import Logo from "./Logo.vue";
 
    export default {
       components: {
          LangSelect,
-         LinksMain,
+         AppNavigation,
+         Logo
       },
       name: "header-app",
    };

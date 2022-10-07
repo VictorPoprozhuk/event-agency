@@ -7,8 +7,13 @@
 </template>
 
 <script>
+   import AppLink from '../App/AppLink'
+
    export default {
       name: "links-app",
+      components: {
+         AppLink
+      }
    };
 </script>
 

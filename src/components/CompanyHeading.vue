@@ -10,8 +10,13 @@
    </div>
 </template>
 <script>
+   import CircleText from './CircleText'
+
    export default {
       name: "main-app",
+      components: {
+         CircleText
+      },
       data() {
          return {
             transformText: {

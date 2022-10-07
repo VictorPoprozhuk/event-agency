@@ -9,8 +9,8 @@
 </template>
 
 <script>
-  import AppHeader from '@/components/AppHeader.vue'
-  import RunningLine from './components/UI/RunningLine'
+  import AppHeader from './components/AppLayout/AppHeader/AppHeader.vue'
+  import RunningLine from './components/RunningLine.vue'
 
   export default {
     components: {
