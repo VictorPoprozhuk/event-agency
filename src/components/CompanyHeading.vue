@@ -4,18 +4,18 @@
          <h1 :style="moveText">FULL-CYCLE <br />EVENT AGENCY</h1>
          <div class="circle-container">
             <div class="circle"></div>
-            <circle-text />
+            <circle-text class="circle-text-container" />
          </div>
       </div>
    </div>
 </template>
 <script>
-   import CircleText from './CircleText'
+   import CircleText from "./CircleText.vue";
 
    export default {
       name: "main-app",
       components: {
-         CircleText
+         CircleText,
       },
       data() {
          return {
@@ -34,10 +34,12 @@
       },
       methods: {
          mouseMove(e) {
-            this.transformText = {
-               x: (window.innerWidth + e.x * 2) / 100 + "px",
-               y: (window.innerWidth + e.y * 2) / 100 + "px",
-            };
+            if (window.innerWidth > 768) {
+               this.transformText = {
+                  x: (window.innerWidth + e.x * 3) / 200 + "px",
+                  y: (window.innerWidth + e.y * 3) / 200 + "px",
+               };
+            }
          },
       },
       mounted() {
@@ -80,56 +82,59 @@
             width: 478px;
             height: 478px;
          }
-         @media screen and (max-width: 700px) {
-            width: 294px;
-            height: 294px;
+         @media screen and (max-width: 576px) {
+            width: 350px;
+            height: 350px;
          }
-      }
-
-      .circle {
-         width: 578px;
-         height: 578px;
-         background: #ffcb46;
-         filter: blur(38px);
-         border-radius: 50%;
-         z-index: 5;
-         position: absolute;
-         top: 50%;
-         left: 50%;
-         transform: translate(-50%, -50%);
-         @media screen and (max-width: 1024px) {
-            width: 478px;
-            height: 478px;
+         @media screen and (max-width: 350px) {
+            width: 240px;
+            height: 240px;
          }
-         @media screen and (max-width: 768px) {
-            width: 478px;
-            height: 478px;
+         .circle {
+            width: 100%;
+            height: 100%;
+            background: #ffcb46;
+            filter: blur(38px);
+            border-radius: 50%;
+            z-index: 5;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
          }
-         @media screen and (max-width: 700px) {
-            width: 294px;
-            height: 294px;
+         .circle-text-container {
+            @media screen and (max-width: 576px) {
+               margin-right: 20px;
+            }
          }
       }
 
       h1 {
          font-weight: 700;
-         font-size: 82px;
+         font-size: 70px;
          line-height: 90px;
          text-align: center;
          text-transform: uppercase;
          z-index: 10;
          color: #373737;
-         letter-spacing: 15px;
          cursor: default;
          @media screen and (max-width: 1024px) {
-            font-size: 58px;
+            font-size: 55px;
          }
 
          @media screen and (max-width: 768px) {
-            width: 550px;
+            width: 490px;
+            font-size: 50px;
          }
-         @media screen and (max-width: 700px) {
+         @media screen and (max-width: 576px) {
             font-size: 34px;
+            line-height: 40px;
+            width: 330px;
+         }
+         @media screen and (max-width: 350px) {
+            font-size: 24px;
+            line-height: 37px;
+            width: 280px;
          }
       }
    }

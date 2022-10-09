@@ -1,7 +1,6 @@
 <template>
    <div class="circle-text-container">
       <div class="circle-text">
-         <div class="center"></div>
          <svg viewBox="0 0 100 100">
             <path
                d="M 0,50 a 50,50 0 1,1 0,1 z"
@@ -13,6 +12,7 @@
             </text>
          </svg>
       </div>
+      <div class="center"></div>
    </div>
 </template>
 
@@ -23,13 +23,11 @@
 </script>
 
 <style lang="scss" scoped>
-   .circle-text {
-      width: 115px;
-      height: 115px;
+   .circle-text-container {
       position: relative;
-      animation: transform 5s;
       z-index: 25;
-      &:hover {
+      &:hover,
+      &:active {
          animation: circle 5s infinite linear;
       }
       .center {
@@ -41,24 +39,53 @@
          height: 8px;
          border-radius: 50%;
          background: #000;
+         z-index: 10;
+         @media screen and (max-width: 576px) {
+            width: 5px;
+            height: 5px;
+         }
       }
-      svg {
-         padding: 16px;
-         display: block;
-         overflow: visible;
-      }
-      path {
-         fill: none;
-      }
-      textPath {
-         font-size: 14px;
-         letter-spacing: 2px;
-         fill: white;
+      .circle-text {
+         width: 115px;
+         height: 115px;
+
+         @media screen and (max-width: 1024px) {
+            width: 110px;
+            height: 110px;
+         }
+         @media screen and (max-width: 768px) {
+            width: 100px;
+            height: 100px;
+         }
+         @media screen and (max-width: 576px) {
+            width: 80px;
+            height: 80px;
+         }
+         @media screen and (max-width: 350px) {
+            width: 50px;
+            height: 50px;
+         }
+
+         svg {
+            padding: 10px;
+            display: block;
+            overflow: visible;
+            width: 100%;
+         }
+         path {
+            fill: none;
+         }
+         textPath {
+            font-size: 14px;
+            letter-spacing: 2px;
+            fill: white;
+         }
       }
    }
+
    @keyframes circle {
       0% {
-         transfrom: rotate(0deg);
+         transform: rotate(0deg);
       }
       100% {
          transform: rotate(-360deg);

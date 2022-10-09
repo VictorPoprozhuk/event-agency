@@ -1,22 +1,26 @@
 <template>
    <div class="lang-select">
-      <div class="selec-container" @mouseleave="isVisible = false">
+      <div
+         class="selec-container"
+         @mouseleave="isVisible = false">
          <div
-              @mouseenter="isVisible = true"
-              class="icon"
-            >
-            <span> 👅 </span>
+            @mouseenter="isVisible = !isVisible"
+            class="icon">
+            <span>👅</span>
          </div>
-         <div class="secects" :style="{ pointerEvents: isVisible ? 'auto' : 'none' }">
+         <div
+            class="secects"
+            :style="{ pointerEvents: isVisible ? 'auto' : 'none' }">
             <span
-               @click="isVisible = false"
                v-for="(lang, index) in langs"
+               @click="activeLang(lang.lang)"
                :style="{
                   transitionDelay: `${index}` * 0.2 + 's',
                   opacity: isVisible ? 1 : 0,
+                  borderBottom: lang.active ? '2px solid white' : '',
                }"
                :key="lang"
-               >{{ lang }}</span
+               >{{ lang.lang }}</span
             >
          </div>
       </div>
@@ -29,8 +33,23 @@
       data() {
          return {
             isVisible: false,
-            langs: ["UA", "EN", "PL"],
+            langs: [
+               { lang: "UA", active: false },
+               { lang: "EN", active: false },
+               { lang: "PL", active: false },
+            ],
          };
+      },
+      methods: {
+         activeLang(langName) {
+            this.isVisible = false;
+            this.langs = this.langs.map((lang) => {
+               langName === lang.lang
+                  ? (lang.active = true)
+                  : (lang.active = false);
+               return lang;
+            });
+         },
       },
    };
 </script>
@@ -38,13 +57,15 @@
 <style lang="scss">
    .lang-select {
       position: absolute;
-      top: 27px;
-      left: 26px;
+
       .selec-container {
          display: flex;
          justify-content: center;
          align-items: center;
          transition-delay: 1s;
+         @media screen and (max-width: 576px) {
+            flex-direction: column;
+         }
          .icon {
             background: transparent;
             border: 1px solid rgb(109, 109, 109);
@@ -62,16 +83,22 @@
             gap: 10px;
             margin-left: 20px;
             cursor: pointer;
+            @media screen and (max-width: 576px) {
+               flex-direction: column;
+               margin: 20px 0 0;
+            }
             span {
+               font-size: 16px;
                color: #373737;
                cursor: pointer;
                opacity: 0;
                transition: opacity 0.4s;
+               padding-bottom: 2px;
 
                &:hover {
-                  transition: 0.3s;
+                  transition: 0.4s;
                   transition-delay: 0s !important;
-                  color: #a19d85;
+                  color: #fdfdfd;
                }
             }
          }

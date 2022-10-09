@@ -1,10 +1,8 @@
 <template>
    <header>
+      <lang-select class="lang-select" />
+      <logo class="logo" />
       <app-navigation />
-      <div class="header__container">
-         <lang-select />
-         <logo />
-      </div>
    </header>
 </template>
 
@@ -17,10 +15,21 @@
       components: {
          LangSelect,
          AppNavigation,
-         Logo
+         Logo,
       },
       name: "header-app",
    };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+   .logo {
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+   }
+   .lang-select {
+      top: 16px;
+      left: 16px;
+   }
+</style>
