@@ -1,6 +1,10 @@
 <template>
-   <div class="circle-text-container">
-      <div class="circle-text">
+   <div
+      class="circle_text_container"
+      :class="{ hover: hoverText }"
+      @touchstart="hoverText = true"
+      @touchend="hoverText = false">
+      <div class="circle_text">
          <svg viewBox="0 0 100 100">
             <path
                d="M 0,50 a 50,50 0 1,1 0,1 z"
@@ -19,16 +23,24 @@
 <script>
    export default {
       name: "circle-text",
+      data() {
+         return {
+            hoverText: false,
+         };
+      },
    };
 </script>
 
 <style lang="scss" scoped>
-   .circle-text-container {
+   .hover {
+      animation: circle 7s infinite linear;
+   }
+   .circle_text_container {
       position: relative;
       z-index: 25;
       &:hover,
       &:active {
-         animation: circle 5s infinite linear;
+         animation: circle 7s infinite linear;
       }
       .center {
          position: absolute;
@@ -45,7 +57,7 @@
             height: 5px;
          }
       }
-      .circle-text {
+      .circle_text {
          width: 115px;
          height: 115px;
 
@@ -61,11 +73,19 @@
             width: 80px;
             height: 80px;
          }
-         @media screen and (max-width: 350px) {
-            width: 50px;
-            height: 50px;
+         @media screen and (max-width: 950px) and (max-height: 500px) {
+            width: 100px;
+            height: 100px;
          }
 
+         @media screen and (max-width: 700px) and (max-height: 500px) {
+            width: 80px;
+            height: 80px;
+         }
+         @media screen and (max-width: 350px) {
+            width: 70px;
+            height: 70px;
+         }
          svg {
             padding: 10px;
             display: block;

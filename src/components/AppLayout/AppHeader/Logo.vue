@@ -1,5 +1,5 @@
 <template>
-   <router-link to="/">
+   <router-link :to="{ name: 'home' }">
       <div class="logo">
          <svg
             id="Layer_1"

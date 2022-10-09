@@ -1,7 +1,7 @@
 <template>
-   <div class="bg-text">
-      <div class="bg-conteiner">
-         <div class="text1 text">
+   <div class="running_text">
+      <div class="text_container">
+         <div class="line_1 line">
             <div>
                <span
                   >FULL-CYCLE EVENT AGENCY FULL-CYCLE EVENT
@@ -31,7 +31,7 @@
                >
             </div>
          </div>
-         <div class="text2 text">
+         <div class="line_2 line">
             <div>
                <span
                   >FULL-CYCLE EVENT AGENCY FULL-CYCLE EVENT
@@ -72,7 +72,7 @@
 </script>
 
 <style lang="scss">
-   .bg-text {
+   .running_text {
       position: absolute;
       overflow: hidden;
       width: 100%;
@@ -83,7 +83,7 @@
       align-items: center;
       pointer-events: none;
 
-      .bg-conteiner {
+      .text_container {
          display: flex;
          flex-direction: column;
          gap: 10px;
@@ -99,23 +99,23 @@
             transform: rotate(123deg);
          }
       }
-      .text1 {
+      .line_1 {
          transform-origin: center center;
          transform: rotate(180deg) translateX(2000px);
       }
-      .text2 {
+      .line_2 {
          transform-origin: center center;
          transform: translateX(2000px);
       }
 
-      .text {
+      .line {
          display: flex;
          white-space: nowrap;
 
          div {
             opacity: 0.2;
-            animation: animate1 300s infinite linear;
-            animation-delay: -300s;
+            animation: background_text_animation 700s infinite linear;
+            animation-delay: -400s;
          }
 
          span {
@@ -126,7 +126,7 @@
          }
       }
    }
-   @keyframes animate1 {
+   @keyframes background_text_animation {
       0% {
          transform: transalteX(100%);
       }

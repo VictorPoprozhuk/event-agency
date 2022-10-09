@@ -1,31 +1,33 @@
 <template>
    <div
       class="links"
-      :class="{ open: menuIsOpen, close: !menuIsOpen }">
+      :class="{ open: menuIsOpen }">
       <div
-         class="links-container"
+         class="links_container"
          @click="changeMenu">
-         <app-link class="link-left link">Who?</app-link>
-         <app-link class="link-bot link">What?</app-link>
-         <app-link class="link-right link">Where?</app-link>
+         <app-link class="link_left link">Who?</app-link>
+         <app-link class="link_bot link">What?</app-link>
+         <app-link class="link_right link">Where?</app-link>
       </div>
    </div>
    <button-menu-link
-      class="menu-bnt"
+      class="menu_bnt"
       :class="{ active: menuIsOpen }"
       v-if="menuLinks"
       @click="changeMenu" />
 </template>
 
 <script>
-   import AppLink from "../App/AppLink";
+   import AppLink from "../App/AppLink.vue";
    import ButtonMenuLink from "@/components/App/ButtonMenuLink.vue";
+
    export default {
       name: "links-app",
       components: {
          AppLink,
          ButtonMenuLink,
       },
+
       data() {
          return {
             isVisibleMenu: false,
@@ -33,15 +35,17 @@
             menuIsOpen: false,
          };
       },
+
       computed: {
          menuLinks() {
-            return this.width < 768;
+            return this.width <= 768;
          },
       },
+
       methods: {
          updateWidth(e) {
             this.width = e.target.innerWidth;
-            console.log(e);
+            this.menuIsOpen = false;
          },
          changeMenu() {
             this.menuIsOpen = !this.menuIsOpen;
@@ -63,68 +67,92 @@
 <style lang="scss" scoped>
    @media screen and (max-width: 768px) {
       .links {
-         position: absolute;
-         width: 100vw;
-         height: 100vh;
-         background: rgb(250, 221, 146);
-         z-index: 120;
-         transition: 1s linear;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-      }
-      .links-container {
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-         justify-content: center;
-         gap: 20px;
+         position: fixed;
+         top: 0;
+         right: -100%;
+         bottom: 0;
+         z-index: 85;
 
-         .link {
-            position: static;
-            transform: rotate(0);
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         flex-direction: column;
+
+         transition: 0.5s linear;
+
+         height: 100%;
+         width: 100%;
+
+         background: #c2c2c2;
+
+         .links_container {
+            z-index: 120;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+
+            .link {
+               position: static;
+               transform: none;
+            }
          }
       }
-      .links.close {
-         transform: translateY(-1000px);
-      }
+
       .links.open {
-         transform: transalteY(0);
+         right: 0;
+
+         .links_container {
+            .link {
+               position: static;
+               transform: none;
+            }
+         }
       }
    }
 
-   .link {
-      position: absolute;
-      z-index: 40;
-   }
-   .link-left {
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%) rotate(-90deg);
-      @media screen and (max-width: 1024px) {
-         left: -15px;
+   .links {
+      .link {
+         position: absolute;
+         z-index: 40;
+      }
+
+      .link_left {
+         left: 0;
+         top: 50%;
+         transform: translateY(-50%) rotate(-90deg);
+
+         @media screen and (max-width: 1024px) {
+            left: -15px;
+         }
+      }
+
+      .link_bot {
+         bottom: 20px;
+         left: 50%;
+         transform: translateX(-50%);
+
+         @media screen and (max-width: 1024px) {
+            bottom: 10px;
+         }
+      }
+
+      .link_right {
+         right: -15px;
+         top: 50%;
+         transform: translateY(-50%) rotate(90deg);
+
+         @media screen and (max-width: 1024px) {
+            right: -30px;
+         }
       }
    }
-   .link-bot {
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      @media screen and (max-width: 1024px) {
-         bottom: 10px;
-      }
-   }
-   .link-right {
-      right: -15px;
-      top: 50%;
-      transform: translateY(-50%) rotate(90deg);
-      @media screen and (max-width: 1024px) {
-         right: -30px;
-      }
-   }
-   .menu-bnt {
+
+   .menu_bnt {
       position: absolute;
       right: 16px;
       top: 16px;
-      z-index: 120;
+      z-index: 85;
    }
 </style>

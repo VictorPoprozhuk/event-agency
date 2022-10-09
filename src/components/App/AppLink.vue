@@ -1,9 +1,9 @@
 <template>
-      <router-link to="/test">
-         <span>
-            <slot></slot>
-         </span>
-      </router-link>
+   <router-link :to="{ name: 'test' }">
+      <span>
+         <slot></slot>
+      </span>
+   </router-link>
 </template>
 
 <script>

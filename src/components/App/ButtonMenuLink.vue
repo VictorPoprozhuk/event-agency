@@ -1,5 +1,5 @@
 <template>
-   <div class="menu-btn">
+   <div class="menu_btn">
       <span></span>
       <span></span>
       <span></span>
@@ -11,7 +11,7 @@
 </script>
 
 <style scoped lang="scss">
-   .menu-btn {
+   .menu_btn {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -42,7 +42,6 @@
          transition: 0.3s linear;
       }
       span:nth-child(1) {
-         //     transform-origin: center center;
          transition-delay: 0.2s;
          top: 18.5px;
          transform: rotate(45deg);
@@ -55,7 +54,6 @@
          transition-delay: 0.2s;
          bottom: 18.5px;
          transform: rotate(-45deg);
-         //     transform-origin: center center;
       }
    }
 </style>

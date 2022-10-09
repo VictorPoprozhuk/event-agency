@@ -36,9 +36,11 @@
       top: 0;
       width: 100vw;
       height: 100vh;
-      background-color: #bebebe;
+      background: #ffcb46;
+      background: -webkit-linear-gradient(to right, #bebebe, #ffcb46);
+      background: linear-gradient(to right, #bebebe, #ffcb46);
       transition: 0.5s ease;
-      z-index: 99;
+      z-index: 100;
    }
 
    .fade-enter-from:after {

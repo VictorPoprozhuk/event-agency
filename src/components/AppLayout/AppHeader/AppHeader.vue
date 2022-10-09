@@ -1,6 +1,6 @@
 <template>
    <header>
-      <lang-select class="lang-select" />
+      <lang-select class="lang_select" />
       <logo class="logo" />
       <app-navigation />
    </header>
@@ -27,8 +27,9 @@
       top: 16px;
       left: 50%;
       transform: translateX(-50%);
+      z-index: 80;
    }
-   .lang-select {
+   .lang_select {
       top: 16px;
       left: 16px;
    }

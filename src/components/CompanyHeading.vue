@@ -1,11 +1,9 @@
 <template>
-   <div>
-      <div class="main-text">
-         <h1 :style="moveText">FULL-CYCLE <br />EVENT AGENCY</h1>
-         <div class="circle-container">
-            <div class="circle"></div>
-            <circle-text class="circle-text-container" />
-         </div>
+   <div class="main_text">
+      <h1 :style="moveText">FULL-CYCLE <br />EVENT AGENCY</h1>
+      <div class="circle_container">
+         <div class="circle"></div>
+         <circle-text class="circle_text_container" />
       </div>
    </div>
 </template>
@@ -39,6 +37,11 @@
                   x: (window.innerWidth + e.x * 3) / 200 + "px",
                   y: (window.innerWidth + e.y * 3) / 200 + "px",
                };
+            } else {
+               this.transformText = {
+                  x: "0",
+                  y: "0",
+               };
             }
          },
       },
@@ -56,7 +59,7 @@
 </script>
 
 <style lang="scss" scoped>
-   .main-text {
+   .main_text {
       text-align: center;
       display: flex;
       justify-content: center;
@@ -64,7 +67,7 @@
       width: fit-content;
       z-index: 5;
 
-      .circle-container {
+      .circle_container {
          display: flex;
          align-items: flex-end;
          justify-content: flex-end;
@@ -82,13 +85,23 @@
             width: 478px;
             height: 478px;
          }
+         @media screen and (max-width: 950px) and (max-height: 500px) {
+            width: 350px;
+            height: 350px;
+         }
+
+         @media screen and (max-width: 700px) and (max-height: 500px) {
+            width: 280px;
+            height: 280px;
+         }
+
          @media screen and (max-width: 576px) {
             width: 350px;
             height: 350px;
          }
          @media screen and (max-width: 350px) {
-            width: 240px;
-            height: 240px;
+            width: 250px;
+            height: 250px;
          }
          .circle {
             width: 100%;
@@ -102,7 +115,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
          }
-         .circle-text-container {
+         .circle_text_container {
             @media screen and (max-width: 576px) {
                margin-right: 20px;
             }
@@ -110,7 +123,7 @@
       }
 
       h1 {
-         font-weight: 700;
+         font-weight: 800;
          font-size: 70px;
          line-height: 90px;
          text-align: center;
@@ -129,12 +142,22 @@
          @media screen and (max-width: 576px) {
             font-size: 34px;
             line-height: 40px;
-            width: 330px;
+            width: 350px;
+         }
+         @media screen and (max-width: 950px) and (max-height: 500px) {
+            font-size: 34px;
+            line-height: 40px;
+            width: 550px;
+         }
+         @media screen and (max-width: 700px) and (max-height: 500px) {
+            font-size: 34px;
+            line-height: 40px;
+            width: 550px;
          }
          @media screen and (max-width: 350px) {
             font-size: 24px;
             line-height: 37px;
-            width: 280px;
+            width: 250px;
          }
       }
    }

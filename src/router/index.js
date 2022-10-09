@@ -5,12 +5,12 @@ import TestLinkPage from "../views/TestLinkPage.vue";
 const routes = [
    {
       path: "/",
-      name: "main",
+      name: "home",
       component: MainPage,
    },
    {
       path: "/test",
-      name: "home",
+      name: "test",
       component: TestLinkPage,
    },
 ];
