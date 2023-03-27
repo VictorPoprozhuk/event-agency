@@ -1,18 +1,3 @@
+A two-page adaptive website on Vue2 using VueRouter, page transitions, and various animations.
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[Link to the project.](https://charming-crepe-1bec9e.netlify.app/)
