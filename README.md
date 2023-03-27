@@ -1,4 +1,3 @@
-# test-app-first
 
 ## Project setup
 ```
